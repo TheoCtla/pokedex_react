@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Components/Common/Header/Header";
+import PokemonList from "./Components/PokemonList/PokemonList";
+import { LanguageProvider } from "./Components/Common/Header/LanguageSelection/LanguageContext";
+import LanguageFilter from "./Components/Common/Header/LanguageSelection/LanguageSelection";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   return (
+      <LanguageProvider>
+         <div className='App'>
+            <Header />
+            <PokemonList />
+         </div>
+      </LanguageProvider>
+   );
 }
 
 export default App;
