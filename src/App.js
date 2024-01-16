@@ -1,15 +1,23 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import Header from "./Components/Common/Header/Header";
 import PokemonList from "./Components/PokemonList/PokemonList";
+import PokemonDetails from './Components/PokemonDetails/PokemonDetails'; // Assurez-vous de créer ce composant
 import { LanguageProvider } from "./Components/Common/Header/LanguageSelection/LanguageContext";
-import LanguageFilter from "./Components/Common/Header/LanguageSelection/LanguageSelection";
 
 function App() {
    return (
       <LanguageProvider>
-         <div className='App'>
-            <Header />
-            <PokemonList />
-         </div>
+         <Router>
+            <div className='App'>
+               <Header />
+               <Routes>
+                  <Route path="/" element={<PokemonList />} />
+                  <Route path="/pokemon/:id" element={<PokemonDetails />} />
+               </Routes>
+            </div>
+         </Router>
       </LanguageProvider>
    );
 }

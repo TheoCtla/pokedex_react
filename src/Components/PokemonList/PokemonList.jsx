@@ -19,10 +19,6 @@ const FetchPokemonList = () => {
       pokemon.names[language].toLowerCase().includes(searchTerm.toLowerCase())
    );
 
-   const addZeroToId = (id) => {
-      return `No.${String(id).padStart(3, "0")}`;
-   };
-
    return (
       <div>
          <SearchBar onSearch={setSearchTerm} />
@@ -30,7 +26,7 @@ const FetchPokemonList = () => {
             {filteredPokemons.map((pokemon) => (
                <PokemonCard
                   key={pokemon.id}
-                  id={addZeroToId(pokemon.id)}
+                  id={pokemon.id}
                   name={pokemon.names[language]}
                   image={pokemon.image}
                   types={pokemon.types}
